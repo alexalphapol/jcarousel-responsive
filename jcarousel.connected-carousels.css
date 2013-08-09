@@ -1,0 +1,137 @@
+/** Stage container **/
+body {  
+}
+.connected-carousels {
+    width: 80%;
+    margin: 0px auto;
+}
+.connected-carousels .stage {
+    position: relative;
+    padding: 0 5px;
+}
+.carousel .carousel-stage {
+}
+.connected-carousels .photo-credits {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.85);
+    opacity: .66;
+}
+
+.connected-carousels .photo-credits a {
+    color: #fff;
+}
+
+/** Navigation container **/
+
+.connected-carousels .navigation {
+    margin: 20px auto;
+    position: relative;
+}
+
+/** Shared carousel styles **/
+
+.connected-carousels .carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.connected-carousels .carousel ul {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.connected-carousels .carousel li {
+    float: left;
+    transition:all .2s linear; 
+    -o-transition:all .2s linear; 
+    -moz-transition:all .2s linear; 
+    -webkit-transition:all .2s linear;      
+}
+
+/** Stage carousel specific styles **/
+
+.connected-carousels .carousel-stage {
+    border: 10px solid #fff;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0 0 2px #999;
+       -moz-box-shadow: 0 0 2px #999;
+            box-shadow: 0 0 2px #999;
+}
+
+/** Navigation carousel specific styles **/
+
+.connected-carousels .carousel-navigation {
+    height: 30px;
+    margin: 0 auto;
+}
+
+.connected-carousels .carousel-navigation li {
+    cursor: pointer;
+    margin: 0 3px;
+}
+
+.connected-carousels .carousel-navigation li img {
+    display: block;
+}
+
+.connected-carousels .carousel-navigation li.active {
+    background: url('img/sprite.png') no-repeat scroll 4px 3px #DDDDDD;
+    background-position: 0px -210px;
+}
+
+/** Stage carousel controls **/
+
+.stage nav span {
+    background: url('img/sprite.png') no-repeat scroll 4px 3px #DDDDDD;
+    background-position: 4px -59px;
+    border-radius: 50% 50% 50% 50%;
+    cursor: pointer;
+    height: 23px;
+    opacity: 0.8;
+    position: absolute;
+    text-indent: -9000px;
+    width: 23px;
+    background-color: #666666;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) inset;    
+    left: -25px;
+    margin-top: -11px;
+    top: 50%;    
+}
+
+.stage nav span.next-stage {
+    background-position: 4px -79px;
+    left: auto;
+    right: -25px;
+}
+
+/** Navigation carousel controls **/
+.navigation nav span {
+    cursor: pointer;
+    height: 12px;
+    position: absolute;
+    text-indent: -9000px;
+    width: 11px; 
+}
+.navigation nav span.prev-navigation {
+    background: url('img/nav_left.png') no-repeat scroll;
+    left: 0px;
+}
+
+.navigation nav span.next-navigation {
+    background: url('img/nav_right.png') no-repeat scroll;
+    left: auto;
+    right: 0px;
+}
+
+.carousel-navigation ul {
+    margin-left: 18px !important;
+}
