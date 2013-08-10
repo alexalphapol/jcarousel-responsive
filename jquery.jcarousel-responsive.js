@@ -37,7 +37,8 @@
 
         // var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') == 75 ? 1 : 0;
         // console.log('is chrome '+is_chrome);
-
+        $('.carousel-stage').jcarousel('scroll', 0);
+        
         var responsive = function() {
             w = $(window).width();
             wc = $('.connected-carousels .carousel-stage').width();
