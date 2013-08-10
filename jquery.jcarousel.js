@@ -495,8 +495,13 @@
                                 this._scroll(Math.min(this.index(this._target) + scroll, end), animate, callback);
                             }
                         }
+                    console.log('last '+last);
+
                     } else {
                         current = this.index(this._target);
+                        console.log('this._target ');
+                        console.log(this._target);
+                        console.log('current '+current);
 
                         if ((this.underflow && current === end && (wrap === 'circular' || wrap === 'both' || wrap === 'last')) ||
                             (!this.underflow && last === end && (wrap === 'both' || wrap === 'last'))) {
@@ -535,6 +540,7 @@
                         }
                     }
                 } else {
+                    console.log('_first '+this.index(this._first));
                     if (this.inTail) {
                         this._scroll(Math.max((this.index(this._first) - scroll) + 1, 0), animate, callback);
                     } else {
@@ -669,6 +675,7 @@
             }
         },
         _scroll: function(item, animate, callback) {
+            console.log('item: '+item );
             if (this.animating) {
                 if ($.isFunction(callback)) {
                     callback.call(this, false);
@@ -1053,7 +1060,7 @@
 
     $.jCarousel.plugin('jcarouselControl', {
         _options: {
-            target: '+=1',
+            target: '+=0',
             event:  'click',
             method: 'scroll'
         },
