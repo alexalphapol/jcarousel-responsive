@@ -495,13 +495,9 @@
                                 this._scroll(Math.min(this.index(this._target) + scroll, end), animate, callback);
                             }
                         }
-                    console.log('last '+last);
 
                     } else {
                         current = this.index(this._target);
-                        console.log('this._target ');
-                        console.log(this._target);
-                        console.log('current '+current);
 
                         if ((this.underflow && current === end && (wrap === 'circular' || wrap === 'both' || wrap === 'last')) ||
                             (!this.underflow && last === end && (wrap === 'both' || wrap === 'last'))) {
@@ -540,7 +536,6 @@
                         }
                     }
                 } else {
-                    console.log('_first '+this.index(this._first));
                     if (this.inTail) {
                         this._scroll(Math.max((this.index(this._first) - scroll) + 1, 0), animate, callback);
                     } else {
@@ -621,6 +616,7 @@
                 transforms3d = !!option.transforms3d,
                 duration     = opts.duration || 0,
                 list         = this.list();
+                //greensock    = opts.greensock || 0;
 
             if (!transitions && duration > 0) {
                 list.animate(properties, opts);
@@ -629,6 +625,10 @@
 
             var complete = opts.complete || $.noop,
                 css = {};
+
+            // if (greensock) {
+            //     console.log('greensock');
+            // }
 
             if (transitions) {
                 var backup = list.css(['transitionDuration', 'transitionTimingFunction', 'transitionProperty']),
@@ -675,7 +675,6 @@
             }
         },
         _scroll: function(item, animate, callback) {
-            console.log('item: '+item );
             if (this.animating) {
                 if ($.isFunction(callback)) {
                     callback.call(this, false);

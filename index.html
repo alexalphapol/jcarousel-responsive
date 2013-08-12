@@ -9,14 +9,29 @@
         <link rel="stylesheet" type="text/css" href="reset.css">
         <link rel="stylesheet" type="text/css" href="style.css">
 
-        <!-- Example assets -->
-
         <link rel="stylesheet" type="text/css" href="jcarousel.connected-carousels.css">
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="modernizr.custom.62874.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+        <script type="text/javascript" src="quo.js"></script>        
         <script type="text/javascript" src="jquery.jcarousel.js"></script>
-        
         <script type="text/javascript" src="jquery.jcarousel-responsive.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('carousel-stage').responsiveSlider({
+                    maxLi: 'default',
+                    minLi: 'default',
+                    marginLi: 'default',
+                    marginNav: 'default',
+                    interval: 'default',
+                    duration: 'default',
+                    wrap: 'default'
+                });
+            });
+        </script>
+    
 
     </head>
     <body>
