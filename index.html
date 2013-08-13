@@ -11,10 +11,10 @@
 
         <link rel="stylesheet" type="text/css" href="jcarousel.connected-carousels.css">
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="jquery.min.js"></script>
         <script type="text/javascript" src="modernizr.custom.62874.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
-        <script type="text/javascript" src="quo.js"></script>        
+        <script> if( /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) document.write('<script type="text/javascript" src="quo.js"><\/script>'); </script>    
         <script type="text/javascript" src="jquery.jcarousel.js"></script>
         <script type="text/javascript" src="jquery.jcarousel-responsive.js"></script>
 
@@ -30,6 +30,7 @@
                     wrap: 'default'
                 });
             });
+
         </script>
     
 

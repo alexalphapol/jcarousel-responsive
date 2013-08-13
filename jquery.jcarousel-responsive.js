@@ -25,7 +25,7 @@
             marginLi = (options.marginLi == undefined || 'default') ? 4 : options.marginLi;
             marginNav = (options.marginNav == undefined || 'default') ? 3 : options.marginNav;
             interval = (options.interval == undefined || 'default') ? 0 : options.interval;
-            duration = (options.interval == undefined || 'default') ? 300 : options.duration;
+            duration = (options.interval == undefined || 'default') ? 600 : options.duration;
             wrap = (options.wrap == undefined || 'default') ? 'last' : options.wrap;
 
         var carouselStage = $('.carousel-stage').jcarousel({
@@ -37,9 +37,9 @@
             transitions: Modernizr.csstransitions ? {
                     transforms:   Modernizr.csstransforms,
                     transforms3d: Modernizr.csstransforms3d,
-                    easing:       'easeInSine'
-                } : true
-            // transitions: false
+                    easing:       'ease',
+                    duration: duration
+                } : false
         });
 
         carouselStage.jcarousel('scroll', 0);
@@ -123,13 +123,14 @@
                 'carousel': carouselStage,
                 'perPage': numLi,
                 'item': function(page, carouselItems) {
-                    return '<li><a href="#' + page + '"><img src="img/nav_w.png" width="10" height="10" alt=""></a></li>';
+                    //return '<li><a href="#' + page + '"><img src="img/nav_w.png" width="10" height="10" alt=""></a></li>';
+                    return '<li><a href="#' + page + '" alt=""></a></li>';
                 }                
             });
 
             $('.carousel-navigation li:first-child').addClass('active');
-            $('.carousel-navigation ul').css('width',($(".carousel-navigation img").width()+marginNav*2)*page); 
-            $('.carousel-navigation').css('width',($(".carousel-navigation img").width()+marginNav*2)*page + 2*parseInt($('.carousel-navigation ul').css('margin-left')));
+            $('.carousel-navigation ul').css('width',($(".carousel-navigation li").width()+marginNav*2)*page); 
+            $('.carousel-navigation').css('width',($(".carousel-navigation li").width()+marginNav*2)*page + 2*parseInt($('.carousel-navigation ul').css('margin-left')));
 
         };
 
@@ -149,16 +150,18 @@
             window.setInterval(autoscroll,interval);
         }  
 
-        var next = function(){$('.next-stage').click();};
-            prev = function(){$('.prev-stage').click();};
+        if( /Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+            var next = function(){$('.next-stage').click();};
+                prev = function(){$('.prev-stage').click();};
 
-        $$('.connected-carousels')
-            .swipeLeft( function(){
-                next();                
-            })
-            .swipeRight( function(){
-                prev();                
-            });
+            $$('.connected-carousels')
+                .swipeLeft( function(){
+                    next();                
+                })
+                .swipeRight( function(){
+                    prev();                
+                });
+        }
 
     };
 })(jQuery);
