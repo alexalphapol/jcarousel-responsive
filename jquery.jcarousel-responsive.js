@@ -27,6 +27,8 @@
             interval = (options.interval == undefined || 'default') ? 0 : options.interval;
             duration = (options.interval == undefined || 'default') ? 600 : options.duration;
             wrap = (options.wrap == undefined || 'default') ? 'last' : options.wrap;
+            sideNav = (options.sideNav == 0) ? 0 : 1;
+            bottomNav = (options.bottomNav == 0) ? 0 : 1;
 
         var carouselStage = $('.carousel-stage').jcarousel({
             animation: {
@@ -45,6 +47,15 @@
         carouselStage.jcarousel('scroll', 0);
 
         var responsive = function() {
+
+            if (sideNav == 0) {
+                $('.stage nav').hide();
+            }
+
+            if (bottomNav == 0) {
+                $('navigation nav').hide();
+            }
+
             w = $(window).width();
             wc = $('.connected-carousels .carousel-stage').width();
          
