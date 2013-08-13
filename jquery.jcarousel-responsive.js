@@ -20,7 +20,7 @@
     $.fn.responsiveSlider = function(options) {
         if (options === undefined) options = {};
         // Setup the carousel
-        var maxLi = (options.maxLi == undefined || 'default') ? 360 : options.maxLi;
+        var maxLi = (options.maxLi == undefined || 'default') ? 276 : options.maxLi;
             minLi = (options.minLi == undefined || 'default') ? 148 : options.minLi;;
             marginLi = (options.marginLi == undefined || 'default') ? 4 : options.marginLi;
             marginNav = (options.marginNav == undefined || 'default') ? 3 : options.marginNav;
@@ -29,6 +29,8 @@
             wrap = (options.wrap == undefined || 'default') ? 'last' : options.wrap;
             sideNav = (options.sideNav == 0) ? 0 : 1;
             bottomNav = (options.bottomNav == 0) ? 0 : 1;
+
+        console.log(maxLi);
 
         var carouselStage = $('.carousel-stage').jcarousel({
             animation: {
@@ -60,8 +62,10 @@
             wc = $('.connected-carousels .carousel-stage').width();
          
             numLi = Math.ceil(wc/maxLi); 
-            page = $('.carousel-stage li').length/numLi;
-
+            console.log(numLi);
+            page = Math.ceil($('.carousel-stage li').length/numLi);
+            console.log('page ' + page);
+            
             if (w < 481) {
                 $('.carousel-stage img').css('width', wc);
             } else {
@@ -71,12 +75,16 @@
                 $('.carousel-stage li').css('margin', marginLi);
             };
 
-            // console.log('first-last');
-            // console.log(carouselStage.jcarousel('first').index());
-            // console.log(carouselStage.jcarousel('last').index());
+            carouselStage.jcarousel('scroll', 0);
+
             carouselStage
-                .on('animate.jcarousel', function(event, carousel) {
-                    var stageCurrent = carouselStage.jcarousel('first').index()/numLi + 1;
+                .on('animateend.jcarousel', function(event, carousel) {
+
+                    console.log('first-last');
+                    console.log(carouselStage.jcarousel('first').index());
+                    console.log(carouselStage.jcarousel('last').index());
+
+                    var stageCurrent = Math.ceil(carouselStage.jcarousel('first').index()/numLi) + 1;
                     $('.navigation li.active').removeClass('active');
                     $('a[href=#'+stageCurrent+']').parent('li').addClass('active');
                 });  
@@ -134,7 +142,6 @@
                 'carousel': carouselStage,
                 'perPage': numLi,
                 'item': function(page, carouselItems) {
-                    //return '<li><a href="#' + page + '"><img src="img/nav_w.png" width="10" height="10" alt=""></a></li>';
                     return '<li><a href="#' + page + '" alt=""></a></li>';
                 }                
             });
