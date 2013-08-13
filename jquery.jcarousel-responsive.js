@@ -20,15 +20,15 @@
     $.fn.responsiveSlider = function(options) {
         if (options === undefined) options = {};
         // Setup the carousel
-        var maxLi = (options.maxLi == undefined || 'default') ? 276 : options.maxLi;
-            minLi = (options.minLi == undefined || 'default') ? 148 : options.minLi;;
-            marginLi = (options.marginLi == undefined || 'default') ? 4 : options.marginLi;
-            marginNav = (options.marginNav == undefined || 'default') ? 3 : options.marginNav;
-            interval = (options.interval == undefined || 'default') ? 0 : options.interval;
-            duration = (options.interval == undefined || 'default') ? 600 : options.duration;
-            wrap = (options.wrap == undefined || 'default') ? 'last' : options.wrap;
-            sideNav = (options.sideNav == 0) ? 0 : 1;
-            bottomNav = (options.bottomNav == 0) ? 0 : 1;
+        var maxLi = (options.maxLi === undefined || options.maxLi === 'default') ? 360 : options.maxLi;
+            minLi = (options.minLi === undefined || options.minLi === 'default') ? 148 : options.minLi;;
+            marginLi = (options.marginLi === undefined || options.marginLi === 'default') ? 4 : options.marginLi;
+            marginNav = (options.marginNav === undefined || options.marginNav === 'default') ? 3 : options.marginNav;
+            interval = (options.interval === undefined || options.interval ===  'default') ? 0 : options.interval;
+            duration = (options.interval === undefined || options.interval ===  'default') ? 600 : options.duration;
+            wrap = (options.wrap === undefined || options.interval ===  'default') ? 'last' : options.wrap;
+            sideNav = (options.sideNav === 0) ? 0 : 1;
+            bottomNav = (options.bottomNav === 0) ? 0 : 1;
 
         console.log(maxLi);
 
