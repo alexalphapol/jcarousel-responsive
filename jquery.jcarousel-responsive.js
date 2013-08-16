@@ -1,14 +1,3 @@
-// ! In chrome, issue related to image loading - fixed
-// + add easing plugin
-// ! refactor to not self invoke and parse in options - fixed
-// ! touch friendly (swipe) - fixed
-// ? error when we change the view on native - fixed
-// + performance: css transition  - done
-// ! pagination - fixed (sets max width as smallest)
-// ! IE width issue - fixed
-
-// ! > ? > +
-
 (function($) {
     $.responsiveSlider = {};
 
@@ -25,8 +14,8 @@
             marginLi = (options.marginLi === undefined || options.marginLi === 'default') ? 4 : options.marginLi;
             marginNav = (options.marginNav === undefined || options.marginNav === 'default') ? 3 : options.marginNav;
             interval = (options.interval === undefined || options.interval ===  'default') ? 0 : options.interval;
-            duration = (options.interval === undefined || options.interval ===  'default') ? 600 : options.duration;
-            wrap = (options.wrap === undefined || options.interval ===  'default') ? 'last' : options.wrap;
+            duration = (options.duration === undefined || options.duration ===  'default') ? 600 : options.duration;
+            wrap = (options.wrap === undefined || options.wrap ===  'default') ? 'last' : options.wrap;
             sideNav = (options.sideNav === 0) ? 0 : 1;
             bottomNav = (options.bottomNav === 0) ? 0 : 1;
 
@@ -46,8 +35,6 @@
                 } : false
         });
 
-        carouselStage.jcarousel('scroll', 0);
-
         var responsive = function() {
 
             if (sideNav == 0) {
@@ -58,25 +45,24 @@
                 $('navigation nav').hide();
             }
 
-            w = $(window).width();
-            wc = $('.connected-carousels .carousel-stage').width();
-         
-            numLi = Math.ceil(wc/maxLi); 
-            console.log(numLi);
-            page = Math.ceil($('.carousel-stage li').length/numLi);
-            console.log('page ' + page);
-            
+            var w = $(window).width();
+                wc = $('.connected-carousels .carousel-stage').width();
+                
             if (w < 481) {
                 $('.carousel-stage img').css('width', wc);
+                numLi = 1;
             } else {
-                // console.log(wc/numLi - marginLi * 2);
+                //console.log(wc/numLi - marginLi * 2);
+                numLi = Math.ceil(wc/maxLi); 
                 $('.carousel-stage img').css('width', wc/numLi - marginLi * 2);
-                // console.log(marginLi);
-                $('.carousel-stage li').css('margin', marginLi);
+                //console.log(marginLi);
             };
 
-            carouselStage.jcarousel('scroll', 0);
+            page = Math.ceil($('.carousel-stage li').length/numLi);
+            //console.log('page ' + page);
 
+            $('.carousel-stage li').css('margin', marginLi);
+        
             carouselStage
                 .on('animateend.jcarousel', function(event, carousel) {
 
@@ -149,6 +135,9 @@
             $('.carousel-navigation li:first-child').addClass('active');
             $('.carousel-navigation ul').css('width',($(".carousel-navigation li").width()+marginNav*2)*page); 
             $('.carousel-navigation').css('width',($(".carousel-navigation li").width()+marginNav*2)*page + 2*parseInt($('.carousel-navigation ul').css('margin-left')));
+
+            carouselStage.jcarousel('scroll', 0);
+
 
         };
 

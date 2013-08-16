@@ -1242,6 +1242,10 @@
                 element.append(currItem);
             });
 
+            if ($('.carousel-navigation li.active').length == 0) { 
+                $('.carousel-navigation li:first-child').addClass('active');
+                console.log('add active first child');
+            }; 
             this._update();
         },
         _update: function() {

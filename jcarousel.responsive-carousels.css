@@ -49,10 +49,6 @@ body {
 
 .connected-carousels .carousel li {
     float: left;
-    transition:all .2s linear; 
-    -o-transition:all .2s linear; 
-    -moz-transition:all .2s linear; 
-    -webkit-transition:all .2s linear;
     overflow: hidden; 
     background: white;     
 }
@@ -87,6 +83,15 @@ body {
     height: 10px;
     width: 10px;
     float: left;
+    transition:all .1s linear; 
+    -o-transition:all .1s linear; 
+    -moz-transition:all .1s linear; 
+    -webkit-transition:all .1s linear;    
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);     
 }
 
 .connected-carousels .carousel-navigation li img {
